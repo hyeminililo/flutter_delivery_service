@@ -41,8 +41,8 @@ class CustomTextFormField extends StatelessWidget {
           fontSize: 14.0,
         ),
         fillColor: INPUT_BG_COLOR,
-        // false - 배경색 없음
-        // true - 배경색 있음
+
+        // true - 배경색 있음, false - 배경색 없음
         filled: true,
         // 모든 Input 상태의 기본 스타일 세팅
         border: baseBorder,
