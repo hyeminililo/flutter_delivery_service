@@ -4,12 +4,13 @@ class DefaultLayout extends StatelessWidget {
   final Color? backgroundColor;
   final Widget child;
   final String? title;
-  final Widget? bottomNavigatioBar;
+  final Widget? bottomNavigationBar;
+
   const DefaultLayout(
       {required this.child,
       this.backgroundColor,
       this.title,
-      this.bottomNavigatioBar,
+      this.bottomNavigationBar,
       super.key});
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class DefaultLayout extends StatelessWidget {
       backgroundColor: backgroundColor ?? Colors.white,
       appBar: renderAppBar(),
       body: child,
-      bottomNavigationBar: bottomNavigatioBar,
+      bottomNavigationBar: bottomNavigationBar,
     );
   }
 
@@ -32,6 +33,7 @@ class DefaultLayout extends StatelessWidget {
           title!,
           style: const TextStyle(fontSize: 16.0, fontWeight: FontWeight.w500),
         ),
+        // 앱 바 위에 올라가는 색상
         foregroundColor: Colors.black,
       );
     }
