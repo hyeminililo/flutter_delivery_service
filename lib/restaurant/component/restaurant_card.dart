@@ -1,6 +1,7 @@
 //게시물에 연결되는 카드같은 것을 모아놓음
 import 'package:flutter/material.dart';
 import 'package:flutter_delivery_app/common/const/colors.dart';
+import 'package:flutter_delivery_app/restaurant/model%20/restaurant_model.dart';
 
 class RestaurantCard extends StatelessWidget {
   final Widget image;
@@ -21,6 +22,23 @@ class RestaurantCard extends StatelessWidget {
       required this.deliveryFee,
       required this.ratings,
       super.key});
+
+// 여기서 왜 model을 만들어야하는지 모르곘음  카드를 반환할 때 모델이 필요해서 그런건가
+  factory RestaurantCard.fromModel({required RestaurantModel model}) {
+    return RestaurantCard(
+      image: Image.network(
+        model.thumubUrl,
+        fit: BoxFit.cover,
+      ),
+      name: model.name,
+      // 서버에서는 dynamic 형태로 받아지므로 from을 통해 string 값으로 바꿔줌
+      tags: model.tags,
+      ratingsCount: model.ratingCount,
+      deliveryTime: model.deliveryTime,
+      deliveryFee: model.deliveryFee,
+      ratings: model.ratings,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {

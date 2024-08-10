@@ -34,19 +34,10 @@ class RestaurantScreen extends StatelessWidget {
                 final pItem = RestaurantModel.formJson(json: item);
                 //parsed -> 클래스로 한 번 객체화 해서 사용 했다.
 
-                return RestaurantCard(
+                return RestaurantCard.fromModel(
+                  model: pItem,
+
                   // 네트워크를 통해 이미지를 가져옴
-                  image: Image.network(
-                    pItem.thumubUrl,
-                    fit: BoxFit.cover,
-                  ),
-                  name: pItem.name,
-                  // 서버에서는 dynamic 형태로 받아지므로 from을 통해 string 값으로 바꿔줌
-                  tags: pItem.tags,
-                  ratingsCount: pItem.ratingCount,
-                  deliveryTime: pItem.deliveryTime,
-                  deliveryFee: pItem.deliveryFee,
-                  ratings: pItem.ratings,
                 );
                 return null;
               },
